@@ -1,0 +1,216 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block body %}
+
+{%load static%}
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>Memberhip</title>
+  <style>
+    .card1 {
+      background-color: whitesmoke;
+      position: absolute;
+      left: 200px;
+      top: 200px;
+    }
+
+    .card2 {
+      background-color: whitesmoke;
+      position: absolute;
+      left: 530px;
+      top: 200px;
+    }
+
+    .card3 {
+      background-color: whitesmoke;
+      position: absolute;
+      left: 850px;
+      top: 200px;
+    }
+
+ 
+
+    
+
+    /* Style The Dropdown Button */
+    .dropbtn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      position: relative;
+      top: 620px;
+      left: 600px;
+      padding: 10px;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+      background-color: #f1f1f1
+    }
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+    .box {
+      position: relative;
+      background-color: rgb(179, 175, 167);
+      width: 400px;
+      height: 100px;
+      top: 730px;
+      left: 556px;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 10px 10px 8px 10px #dde7a1;
+    }
+
+    .dropdown1 {
+      /* position: absolute
+            left: 200px; */
+      text-align: center;
+
+    }
+  </style>
+</head>
+
+<body>
+  <form action="#" method="post">
+    {%csrf_token%}
+
+    <!-- <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut sequi qui ullam est ipsam, quas
+      fugiat earum eaque optio aut labore rem autem dicta tenetur? Ut vitae voluptate ex dignissimos, animi mollitia
+      asperiores optio. Dolores, quis! Accusamus minima earum corrupti dolorum. Dolorem molestiae alias repellendus
+      praesentium dolore! Voluptatum, ipsam laudantium?</p> -->
+    <div class="baradaba">
+      <div class="card1" style="width: 18rem;">
+        <img class="card-img-top" src="{% static 'club_app/premium3.png' %}" alt="Premium Membership">
+        <div class="card-body">
+          <h5 class="card-title">Premium Membership</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        </div>
+        <!-- <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul> -->
+        <ul>
+          <li>01 Year Membership</li>
+          <li>All resources free</li>
+          <li>Fee: 1200 Rupees</li>
+        </ul>
+
+
+
+      </div>
+
+
+      <div class="card2" style="width: 18rem;">
+        <img class="card-img-top" src="{% static 'club_app/standard2.png' %}" alt="Standard Membership">
+        <div class="card-body">
+          <h5 class="card-title">Standard Membership</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        </div>
+        <ul>
+          <li>06 Months Membership</li>
+          <li>Some resources free</li>
+          <li>Fee: 600 Rupees</li>
+        </ul>
+
+      </div>
+
+
+
+
+      <div class="card3" style="width: 18rem;">
+        <img class="card-img-top" src="{% static 'club_app/basic2.png' %}" alt="Basic Membership">
+        <div class="card-body">
+          <h5 class="card-title">Basic Membership</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        </div>
+        <ul>
+          <li>01 Month Membership</li>
+          <li>No resources free</li>
+          <li>Fee: 100 Rupees</li>
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <div class="box">
+      <p>Click Here to apply for Membership</p>
+      <label for="cars">Select Here:</label>
+
+      <select name="membership_type" id="cars">
+        <option value="None">None</option>
+        <option value="Premium Membership">Premium Membership</option>
+        <option value="Standard Membership">Standard Membership</option>
+        <option value="Basic Membership">Basic Membership</option>
+      </select>
+
+      <button>Select</button>
+
+    </div>
+
+  </form>
+  {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+{% endblock %}

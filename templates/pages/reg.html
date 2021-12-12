@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            /*appplying this property does not change the width of box or container*/
+
+        }
+
+        body {
+
+            height: 100vh;
+            width: 100%;
+            background: url("{% static 'club_app/bg.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Poppins', sans-serif;
+            opacity: 0.8;
+        }
+
+        #p {
+            text-align: center;
+        }
+
+        h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            margin: auto;
+            /* for  setting the container to center*/
+            width: 35%;
+            /*making the container half width wise*/
+            padding: 30px;
+            /*internal distance bt text and the borders*/
+            border-radius: 20px;
+            background-color: white;
+            position: relative;
+            top: 40px;
+            margin-top: 50px;
+            box-shadow: 0px 20px 20px 0px rgba(5, 5, 5, 0.7)
+                /*for providing the shadow*/
+        }
+
+        input[type='text'],
+        input[type='text'] {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background: rgb(202, 200, 200);
+            display: inline-block;
+            margin: 5px 0 22px 0;
+        }
+
+        .btn {
+            color: white;
+            width: 20%;
+            border-radius: 30px;
+            padding: 15px;
+            border: none;
+            background: teal;
+            margin: 5px 0 22px 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn:hover {
+            box-shadow: 3px 3px 1px rgb(1, 51, 51);
+            position: relative;
+            top: -2px;
+            transition: 0.1s ease-in;
+            cursor: pointer;
+        }
+
+        #submit {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <form class="log" action="#" method="POST">
+            {%csrf_token%} <h1>Register</h1>
+
+            <p id="p">Thank you for getting Registered with us</p>
+
+            <label for="fn">First Name</label> <br>
+            <input type="text" name="myname" placeholder="Full Name" required>
+
+            <label for="psw">Password</label> <br>
+            <input type="text" name="mypass" placeholder="Enter Password"id="pass" required> <br>
+
+            <label for="psw">Confirm Password</label> <br>
+            <input type="text" name="confirm" placeholder="Enter Confirm Password"id="cpass" required>
+
+            <label for="email">Email</label> <br>
+            <input type="text" name="myemail" placeholder="Enter a valid email address" required>
+
+
+
+
+            <br>
+            <div id="submit">
+                <button class="btn" type="submit"onclick="my()">Submit</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+<script>
+     function my() {
+        if (document.getElementById('pass').value == document.getElementById('cpass').value) {
+            pass
+
+        } else {
+            alert("Password not Matched")
+            event.preventDefault();
+
+        }
+      }
+    {% if msg|length != 0 %}
+    alert('{{msg}}');
+    {% endif %}
+
+</script>
+
+</html>
