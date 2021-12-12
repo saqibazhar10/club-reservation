@@ -1,7 +1,3 @@
-from django.http import request
-from django.http.request import HttpHeaders
-from django.http.response import HttpResponse, HttpResponseRedirect
-from django.contrib import messages
 from django.shortcuts import render, redirect
 from club_app.models import Payment, Registered_User,Manager,Reservation,feedback,events,Room,Message
 from django.core.mail import send_mail
@@ -9,7 +5,6 @@ import datetime
 from datetime import date
 import string  
 from werkzeug.security import check_password_hash, generate_password_hash
-from socket import gaierror
 from dateutil.relativedelta import relativedelta
 from validate_email_address import validate_email
 from django.http import HttpResponse, JsonResponse
